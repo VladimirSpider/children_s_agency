@@ -1,0 +1,34 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin area</title>
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <script src="{% static 'main/js/card.js' %}"></script>
+    <script src="{% static 'main/js/line_progress.js' %}"></script>
+</head>
+<body>
+    <div class="techno_body">
+        <div class="techno_content">
+            <div class="techno_content_right">
+            <div class="block_menu_admin">
+                <div class="button_menu"><p><a href="{% url 'home' %}"><b>На главную</b></a></p></div>
+                <div class="button_menu {% if 'create_good' in request.path %}active_now{% endif %}"><p><a href="{% url 'create_good' %}"><b>Добавление<br>товара</b></a></p></div>
+                <div class="button_menu {% if 'create_img_gallery' in request.path %}active_now{% endif %}"><p><a href="{% url 'create_img_gallery' %}"><b>Добавление<br>в галерею</b></a></p></div>
+                <div class="button_menu {% if 'create_cost' in request.path %}active_now{% endif %}"><p><a href="{% url 'create_cost' %}"><b>Добавление<br>цены товара</b></a></p></div>
+            </div>
+            </div>
+            <div class="techno_content_left">
+            {% block content %}
+
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

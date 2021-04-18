@@ -1,0 +1,22 @@
+{% extends 'data_for_project/admin_area.html' %}
+{% load static %}
+{% block content %}
+    <div class="techno_block_content">
+        <h2 id="animation_text_main">Редактирование товара!</h2>
+        <div class="block_scroll">
+            <form class="form_main" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.service }}
+                {{ form.service_name }}<br>
+                {{ form.img_service1 }}<br>
+                {{ form.img_service2 }}<br>
+                {{ form.img_service3 }}<br>
+                {{ form.service_description }}<br>
+                <!--{{ form.as_p }}-->
+                <span>{{ error}}</span>
+                <button class="button_review" type="submit">Редактировать</button>
+                <div class="button_menu"><p><a href="{% url 'admin_area' %}"><b>Вернуться к админке</b></a></p></div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

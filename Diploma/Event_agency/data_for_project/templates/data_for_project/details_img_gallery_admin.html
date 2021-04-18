@@ -1,0 +1,23 @@
+{% extends 'data_for_project/admin_area.html' %}
+{% load static %}
+{% block content %}
+    <div class="techno_block_content">
+        <h2 id="animation_text_main">Управление изображением!</h2>
+        <div class="block_scroll">
+            <div class="block_details_img_gallery">
+                <div><p class="text_img_gallery">Описание:<br>{{ our_gallery.description }}</p></div>
+                <div><p class="text_img_gallery">Дата время:<br>{{ our_gallery.date_event }}</p></div>
+                <div class="container">
+                    <div class="card">
+                        <div class="body_img_gallery">
+                            <img class="img_gallery" src="{{ our_gallery.img }}" alt="goods">
+                        </div>
+                     </div>
+                </div>
+                <div class="button_menu"><p><a href="{% url 'admin_area' %}"><b>Назад</b></a></p></div>
+                <div class="button_menu"><p><a href="{% url 'img_gallery_update' our_gallery.id %}"><b>Редактирование</b></a></p></div>
+                <div class="button_menu"><p><a href="{% url 'img_gallery_delete' our_gallery.id %}"><b>Удаление</b></a></p></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'data_for_project/admin_area.html' %}
+{% load static %}
+{% block content %}
+    <div class="techno_block_content">
+        <h2 id="animation_text_main">Управление online заказом!</h2>
+        <div class="block_progress">
+            <div class="progress"></div>
+        </div>
+        <div class="block_scroll">
+            <div class="body_orders">
+                <table>
+                    <tr><th>Название полей:</th><th>Данные клиента:</th></tr>
+                    <tr><td>Имя клиента</td><td>{{online_order.name}}</td></tr>
+                    <tr><td>Телефон клиента</td><td>{{online_order.phone}}</td></tr>
+                    <tr><td>Дата и время праздника</td><td>{{online_order.date}}</td></tr>
+                    <tr><td>Колличество детей</td><td>{{online_order.number_children}}</td></tr>
+                    <tr><td>Выбранный герой</td><td>{{online_order.hero}}</td></tr>
+                    <tr><td>Длительность программы</td><td>{{online_order.time}}</td></tr>
+                    <tr><th colspan="2">
+                        <div class="button_menu"><p><a href="{% url 'admin_area' %}"><b>Назад</b></a></p></div>
+                        <div class="button_menu"><p><a href="{% url 'online_order_update' online_order.id %}"><b>Редактирование</b></a></p></div>
+                        <div class="button_menu"><p><a href="{% url 'online_order_delete' online_order.id %}"><b>Удаление</b></a></p></div>
+                    </th></tr>
+                </table>
+                <br><br>
+            </div>
+        </div>
+    </div>
+{% endblock %}

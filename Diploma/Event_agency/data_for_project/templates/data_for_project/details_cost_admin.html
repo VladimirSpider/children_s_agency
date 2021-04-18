@@ -1,0 +1,24 @@
+{% extends 'data_for_project/admin_area.html' %}
+{% load static %}
+{% block content %}
+    <div class="techno_block_content">
+        <h2 id="animation_text_main">Управление ценой!</h2>
+        <div class="block_scroll">
+            <div class="cost_body">
+                <table>
+                    <tr><th>услуга</th><th>цена</th></tr>
+                    <tr><td rowspan="3">{{service_cost.id_service.service_name}}</td><td>{{service_cost.service_cost_min}}</td></tr>
+                    <tr><td>{{service_cost.service_cost_base}}</td></tr>
+                    <tr><td>{{service_cost.service_cost_max}}</td></tr>
+                    <tr><th colspan="2">
+                        <div class="button_menu"><p><a href="{% url 'admin_area' %}"><b>Назад</b></a></p></div>
+                        <div class="button_menu"><p><a href="{% url 'cost_update' service_cost.id %}"><b>Редактирование</b></a></p></div>
+                        <div class="button_menu"><p><a href="{% url 'cost_delete' service_cost.id %}"><b>Удаление</b></a></p></div>
+                    </th></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

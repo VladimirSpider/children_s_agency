@@ -1,0 +1,23 @@
+{% extends 'data_for_project/admin_area.html' %}
+{% load static %}
+{% block content %}
+    <div class="techno_block_content">
+        <h2 id="animation_text_main">Управление пользователем!</h2>
+        <div class="block_progress">
+            <div class="progress"></div>
+        </div>
+        <div class="block_scroll">
+            <div class="cost_body users">
+                 <table>
+                     <tr><th>Пользователи:</th></tr>
+                     <tr><td>{{User.username}}</td></tr>
+                     <tr><th>
+                         <div class="button_menu"><p><a href="{% url 'admin_area' %}"><b>Назад</b></a></p></div>
+                         <div class="button_menu"><p><a href="{% url 'User_delete' User.id %}"><b>Удаление</b></a></p></div>
+                     </th></tr>
+                 </table>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

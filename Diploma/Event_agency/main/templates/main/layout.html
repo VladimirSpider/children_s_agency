@@ -1,0 +1,132 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    {% if 'about_us' in request.path %}
+    {% elif 'goods' in request.path %}
+    {% elif 'gallery' in request.path %}
+    {% elif 'cost' in request.path %}
+    {% elif 'reviews' in request.path %}
+    {% elif 'registration_page' in request.path %}
+    {% elif 'create_review' in request.path %}
+    {% elif 'do_fast_online_order' in request.path %}
+    {% elif 'Register' in request.path %}
+    {% elif 'LoginFormView' in request.path %}
+    {% elif 'product' in request.path %}
+    {% else %}<script src="{% static 'main/js/slider.js' %}"></script>
+    {% endif %}
+    <script src="{% static 'main/js/card.js' %}"></script>
+    <script src="{% static 'main/js/line_progress.js' %}"></script>
+    {% if 'gallery' in request.path %}
+        <script src="{% static 'main/js/modal_image.js' %}"></script>
+    {% endif %}
+    <!--<script src="{% static 'main/js/menu.js' %}"></script>-->
+</head>
+<body>
+    <div class="all_content">
+        <div class="header">
+            <div class="border_control header_left">
+                {% if request.user.is_authenticated %}
+
+                <div class="button_menu {% if 'create_review' in request.path %}active_now{% endif %}" id="animation_button"><p><a href="{% url 'create_review' %}"><b>Оставить<br>отзыв</b></a></p></div>
+
+                {% endif %}
+            </div>
+            <div class="border_control header_center">
+                <img class="for_logo_left" src="{% static 'main/img/img_header/air_balloons.png' %}" alt="Лого">
+                <img src="{% static 'main/img/img_header/logo.jpg' %}" alt="Лого">
+                <img class="for_logo_right" src="{% static 'main/img/img_header/air_balloons.png' %}" alt="Лого">
+            </div>
+            <div class="border_control header_right">
+                <div class="button_menu {% if 'do_fast_online_order' in request.path %}active_now{% endif %}" id="animation_button"><p><a href="{% url 'do_fast_online_order' %}"><b>Заказать<br>online</b></a></p></div>
+            </div>
+        </div>
+        <div class="body_site">
+            <div class="border_control body_menu">
+                <div class="block_menu">
+                    <div class="navigation"><h3>Navigation</h3></div>
+                    <div class="button_menu
+                    {% if 'about_us' in request.path %}
+                    {% elif 'goods' in request.path %}
+                    {% elif 'gallery' in request.path %}
+                    {% elif 'cost' in request.path %}
+                    {% elif 'reviews' in request.path %}
+                    {% elif 'registration_page' in request.path %}
+                    {% elif 'create_review' in request.path %}
+                    {% elif 'do_fast_online_order' in request.path %}
+                    {% elif 'Register' in request.path %}
+                    {% elif 'LoginFormView' in request.path %}
+                    {% elif 'product' in request.path %}
+                    {% else %}active_now
+                    {% endif %}
+                    "><p><a href="{% url 'home' %}"><b>Главная</b></a></p></div>
+                    <div class="button_menu {% if 'about_us' in request.path %}active_now{% endif %}"><p><a href="{% url 'about_us' %}"><b>О нас</b></a></p></div>
+                    <div class="button_menu
+                    {% if 'goods' in request.path %}active_now
+                    {% elif 'product' in request.path %}active_now
+                    {% endif %}
+                    "><p><a href="{% url 'goods' %}"><b>Товары</b></a></p></div>
+                    <div class="button_menu {% if 'gallery' in request.path %}active_now{% endif %}"><p><a href="{% url 'gallery' %}"><b>Галерея</b></a></p></div>
+                    <div class="button_menu {% if 'cost' in request.path %}active_now{% endif %}"><p><a href="{% url 'cost' %}"><b>Цены</b></a></p></div>
+                    <div class="button_menu {% if 'reviews' in request.path %}active_now{% endif %}"><p><a href="{% url 'reviews' %}"><b>Отзывы</b></a></p></div>
+                    <div class="button_menu
+                    {% if 'registration_page' in request.path %}active_now
+                    {% elif 'Register' in request.path %}active_now
+                    {% elif 'LoginFormView' in request.path %}active_now
+                    {% endif %}
+                    "><p><a href="{% url 'registration_page' %}"><b>Регистрация<br>Вход/Выход</b></a></p></div>
+                    {% if request.user.is_authenticated%}
+                        {% if request.user.username == "Superuser" %}
+                            <div class="button_menu"><p><a href="{% url 'admin_area' %}"><b>Админка</b></a></p></div>
+                        {% endif %}
+                    {% endif %}
+                </div>
+             </div>
+            <div class="border_control body_content">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        <div class="border_control basement">
+            <div class="contact">
+                <p>Happy Family<br>праздничное агентство</p>
+            </div>
+            <div>
+                <div class="contact">
+                    <img class="for_basement" src="{% static 'main/img/img_basement/phone.png' %}" alt="phone">
+                    <li>
+                        Tel:+375(44)744-01-50
+                    </li>
+                </div>
+                <div class="contact">
+                    <img class="for_basement" src="{% static 'main/img/img_basement/phone.png' %}" alt="phone">
+                    <li>
+                        Tel:+375(25)778-40-75
+                    </li>
+                </div>
+            </div>
+            <div>
+                <div class="contact">
+                    <img class="for_basement" src="{% static 'main/img/img_basement/vk.png' %}" alt="vk">
+                    <li>
+                        vk.com/happyfamil_y
+                    </li>
+                </div>
+                <div class="contact">
+                    <img class="for_basement" src="{% static 'main/img/img_basement/instagram.png' %}" alt="instagram">
+                    <li>
+                        instagram.com/happyfamil_y
+                    </li>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

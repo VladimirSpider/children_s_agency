@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+    Happy Family
+{% endblock %}
+
+{% block content %}
+    <div class="main_block_content">
+        <h2 id="animation_text_main">Ваш отзыв</h2>
+        <div class="block_scroll">
+            <form class="form_main" method="post">
+                {% csrf_token %}
+                {{ form.u_name }}
+                {{ form.u_surname }}<br>
+                {{ form.review }}<br>
+                <span>{{ error}}</span>
+                <button class="button_review" type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}
+    Happy Family
+{% endblock %}
+
+{% block content %}
+    <div class="main_block_content">
+        <h2 id="animation_text_main">Галерея</h2>
+        <div class="block_progress">
+            <div class="progress"></div>
+        </div>
+        <div class="block_scroll">
+            <div class="container">
+                {% for el in mygallery %}
+                    <div class="card">
+                        <div class="body_img_gallery">
+                            <img class="img_gallery myImg" src="{{ el.img }}" alt="goods">
+                        </div>
+                     </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div id="myModal">
+		<span class="close">&times;</span>
+		<img id="img01">
+		<div id="caption"></div>
+	</div>
+{% endblock %}

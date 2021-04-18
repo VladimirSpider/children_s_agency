@@ -1,0 +1,23 @@
+{% extends 'data_for_project/admin_area.html' %}
+{% load static %}
+{% block content %}
+    <div class="techno_block_content">
+        <h2 id="animation_text_main">Управление отзывом!</h2>
+        <div class="block_progress">
+            <div class="progress"></div>
+        </div>
+        <div class="block_scroll">
+            <div class="review">
+                <div class="header_review">
+                    <h3>{{review.u_name}} {{ review.u_surname}}</h3>
+                </div>
+                <div class="body_review">
+                    <h3>{{ review.review }}</h3>
+                </div>
+            </div>
+            <div class="button_menu"><p><a href="{% url 'admin_area' %}"><b>Назад</b></a></p></div>
+            <div class="button_menu"><p><a href="{% url 'review_delete' review.id %}"><b>Удаление</b></a></p></div>
+
+        </div>
+    </div>
+{% endblock %}

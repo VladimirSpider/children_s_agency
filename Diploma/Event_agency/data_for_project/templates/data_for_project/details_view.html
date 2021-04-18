@@ -1,0 +1,54 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}
+    Happy Family
+{% endblock %}
+
+{% block content %}
+    <div class="main_block_content">
+        <h2 id="animation_text_main">Товар</h2>
+        <div class="block_progress">
+            <div class="progress"></div>
+        </div>
+        <div class="block_scroll">
+            <div class="about_good">
+                <h1>{{ service.service }} {{ service.service_name }}</h1>
+                <h1>Описание:</h1>
+                <p>{{ service.service_description }}</p>
+                <div class="block_img_goods">
+                    <div class="block_img_good"><img class="animation_img" src="{{ service.img_service1 }}" alt="goods"></div>
+                    <div class="block_img_good"><img class="animation_img" src="{{ service.img_service2 }}" alt="goods"></div>
+                    <div class="block_img_good"><img class="animation_img" src="{{ service.img_service3 }}" alt="goods"></div>
+                </div>
+                <div class="in_a_programme">
+                    <h1>В программу входит:</h1>
+                    <li>
+                        Современное музыкальное сопровождение.
+                    </li>
+                    <li>
+                        Знакомство.
+                    </li>
+                    <li>
+                        Подвижные и логические игры и конкурсы с тематическим реквизитом.
+                    </li>
+                    <li>
+                        Мыльные пузыри.
+                    </li>
+                    <li>
+                        Огненные пузыри.
+                    </li>
+                    <li>
+                        Пенное шоу.
+                    </li>
+                    <li>
+                        Твистинг.
+                    </li>
+                    <li>
+                        Торжественое поздравление (вынос тортика).
+                    </li>
+                </div>
+                <div class="button_menu"><p><a href="{% url 'goods' %}"><b>Назад</b></a></p></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}
+    Happy Family
+{% endblock %}
+
+{% block content %}
+    <div class="main_block_content">
+        <h2 id="animation_text_main">Регистрация/Вход/Выход</h2>
+        <div class="block_progress">
+            <div class="progress"></div>
+        </div>
+        <div class="block_scroll">
+            <div class="block_registration">
+                {% if request.user.is_authenticated %}
+                <button class="button_review reg_user"><a class="p-2 text-dark" href="{% url 'logout' %}"><b>Выйти</b></a></button>
+                {% else %}
+                <button class="button_review reg_user"><a class="p-2 text-dark" href="{% url 'Register' %}"><b>Регистрация</b></a></button>
+                <button class="button_review reg_user"><a class="p-2 text-dark" href="{% url 'login' %}"><b>Войти</b></a></button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

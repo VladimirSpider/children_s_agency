@@ -1,0 +1,40 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}
+    Happy Family
+{% endblock %}
+
+{% block content %}
+ <div class="main_block_content">
+        <h2 id="animation_text_main">Прайс</h2>
+        <div class="block_progress">
+            <div class="progress"></div>
+        </div>
+        <div class="block_scroll">
+            <div class="cost_body">
+                <div class="cost_body_form">
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        <select name="service_sort">
+                            <option val=""></option>
+                            {% for el in service %}
+                            <option val="{{ el.id }}">{{ el.service_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <button type="submit"><b>Выбрать</b></button>
+                    </form>
+                </div>
+                <table>
+                    <tr><th>услуга</th><th>цена</th></tr>
+                    {% for el in our_cost %}
+                    <tr><td rowspan="3">{{el.id_service.service_name}}</td><td>{{el.service_cost_min}}</td></tr>
+                    <tr><td>{{el.service_cost_base}}</td></tr>
+                    <tr><td>{{el.service_cost_max}}</td></tr>
+                    {% endfor %}
+                </table>
+                <br>
+            </div>
+        </div>
+ </div>
+
+{% endblock %}

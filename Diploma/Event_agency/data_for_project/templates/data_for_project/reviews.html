@@ -1,0 +1,26 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+    Happy Family
+{% endblock %}
+
+{% block content %}
+    <div class="main_block_content">
+        <h2 id="animation_text_main">Отзывы</h2>
+        <div class="block_progress">
+            <div class="progress"></div>
+        </div>
+        <div class="block_scroll">
+        {% for el in all_reviews %}
+            <div class="review">
+                <div class="header_review">
+                    <h3>{{el.u_name}} {{ el.u_surname}}</h3>
+                </div>
+                <div class="body_review">
+                    <h3>{{ el.review }}</h3>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

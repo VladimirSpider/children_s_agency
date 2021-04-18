@@ -1,0 +1,35 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Main page
+{% endblock %}
+
+{% block content %}
+    <div class="block_content">
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img class='visible-image'/>
+            </div>
+            <a class="ButtonSliderLeft">&#10094</a>
+            <a class="ButtonSliderRight">&#10095</a>
+        </div>
+        <div class="dot-container">
+        </div>
+
+        <div class="text_main">
+            <h2>
+                Добро пожаловать на сайт<br>
+                праздничного агентства<br>
+            </h2>
+            <h1 id="animation_text_main">
+                Happy<br>
+                Family
+            </h1>
+             <h2>
+                Устройте незабываемый праздник<br>
+                вашему ребенку!<br>
+            </h2>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'data_for_project/admin_area.html' %}
+
+{% block content %}
+    <div class="techno_block_content">
+        <h2 id="animation_text_main">Удалить online заказ!</h2>
+        <div class="block_scroll">
+            <form class="form_main" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <span>{{ error}}</span>
+                <button class="button_review" type="submit">Удалить</button>
+                <div class="button_menu"><p><a href="{% url 'admin_area' %}"><b>Вернуться к админке</b></a></p></div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

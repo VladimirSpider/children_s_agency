@@ -1,0 +1,31 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}
+    Happy Family
+{% endblock %}
+
+{% block content %}
+    <div class="main_block_content">
+        <h2 id="animation_text_main">Товары</h2>
+        <div class="block_progress">
+            <div class="progress"></div>
+        </div>
+        <div class="block_scroll">
+        {% for el in goods %}
+
+                <div class="good">
+                    <div class="header_good">
+
+                        <h3>{{ el.service_name }}</h3>
+                    </div>
+                    <div class="body_good">
+                        <div class="body_good_img">
+                            <img class="img_goods" src="{{ el.img_service1 }}" alt="goods">
+                        </div>
+                        <div class="button_menu"><p><a href="{% url 'service_detail' el.id %}"><b>Подробнее</b></a></p></div>
+                    </div>
+                </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

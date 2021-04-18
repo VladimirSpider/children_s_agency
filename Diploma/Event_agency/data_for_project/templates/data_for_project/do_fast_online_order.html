@@ -1,0 +1,50 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}
+    Happy Family
+{% endblock %}
+
+{% block content %}
+    <div class="main_block_content">
+        <h2 id="animation_text_main">Ваш заказ</h2>
+        <div class="block_scroll">
+            <form class="form_main" method="post">
+                <div class="frendly sky_fire">
+                    <img class="frendly_img1" src="{% static 'main/img/img_header/sky_fire.png' %}" alt="Лого">
+                    <img class="frendly_img2" src="{% static 'main/img/img_header/sky_fire.png' %}" alt="Лого">
+                    <img class="frendly_img3" src="{% static 'main/img/img_header/sky_fire.png' %}" alt="Лого">
+                    <img class="frendly_img4" src="{% static 'main/img/img_header/sky_fire.png' %}" alt="Лого">
+                    <img class="frendly_img5" src="{% static 'main/img/img_header/sky_fire.png' %}" alt="Лого">
+                </div>
+                <p>Заполните форму для онлайн заказа и наш специалист свяжется с вами!</p>
+                {% csrf_token %}
+                {{ form.name }}
+
+                {{ form.phone }}
+                <br>
+                {{ form.number_children }}<br>
+                <div class="frendly">
+                    <img class="frendly_img" src="{% static 'main/img/img_header/air_balloons.png' %}" alt="Лого">
+                    <div>
+                        <p>Выведите желаемую дату и время:</p>
+                        <input class="form_order" type="datetime-local" name="date">
+                        <p>Выберите героя:</p>
+                        <select class="form_order" name="hero">
+                            <option val=""></option>
+                            {% for el in service %}
+                            <option val="{{ el.id }}">{{ el.service_name }}</option>
+                            {% endfor %}
+                        </select><br>
+                        <p>Выберите длительность программы:</p>
+                        <input class="form_order" type="radio" name="time" value="30min">30min
+                        <input class="form_order" type="radio" name="time" value="60min">60min
+                        <input class="form_order" type="radio" name="time" value="90min">90min
+                        <span>{{ error}}</span>
+                        <br><br><button class="button_order" type="submit">Отправить</button>
+                    </div>
+                    <img class="frendly_img" src="{% static 'main/img/img_header/air_balloons.png' %}" alt="Лого">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
